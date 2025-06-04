@@ -36,8 +36,6 @@ export const App = () => {
     setHasUserIdError(false);
   };
 
-  const maxId = Math.max(...todos.map(todo => todo.id));
-
   const addTodo = (newTodo: Todo) => {
     setTodos(currentTodos => [...currentTodos, newTodo]);
   };
@@ -51,6 +49,8 @@ export const App = () => {
     if (!title || !userId) {
       return;
     }
+
+    const maxId = Math.max(...todos.map(todo => todo.id));
 
     addTodo({
       id: maxId + 1,
